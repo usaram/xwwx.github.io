@@ -117,7 +117,7 @@ body {
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     gap: 20px;
-    width: 50%; /* Set the width of the container */
+    width: 20%; /* Set the width of the container */
     margin: 0 auto; /* Center the container horizontally */
     flex-wrap: wrap; /* Allow cards to wrap to the next line */
 }
