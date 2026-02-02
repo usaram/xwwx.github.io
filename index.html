@@ -1,9 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xwwx</title>
-  </head>
-  <body>
-    <h1>Funcionou 🚀</h1>
-  </body>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- VÍDEO -->
+        <section class="video-section">
+            <h2>🎥 Meu Vídeo</h2>
+            <video controls>
+                <source src="videos/meuvideo.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+        </section>
+
+        <!-- SPOTIFY -->
+        <section class="spotify-section">
+            <h2>🎵 Minha Playlist</h2>
+            <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" 
+                width="100%" 
+                height="380" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <!-- DISCORD -->
+        <section class="discord-section">
+            <h2>💬 Meu Discord</h2>
+            <div class="discord-card">
+                <img src="https://lanyard.cnrad.dev/api/SEU_USER_ID_AQUI?theme=dark&bg=1a1a2e&animated=true" 
+                     alt="Discord Status">
+            </div>
+        </section>
+
+    </div>
+</body>
 </html>
