@@ -114,7 +114,8 @@ body {
 
 .social-links-container {
     display: flex; /* Enable flexbox */
-    justify-content: space-around; /* Distribute cards evenly */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     gap: 20px;
     width: 80%; /* Set the width of the container */
     margin: 0 auto; /* Center the container horizontally */
