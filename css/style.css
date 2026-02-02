@@ -51,7 +51,7 @@ h2 {
 }
 
 iframe {
-    border-radius: 12px;
+    border-radius: 5px;
     display: block;
     margin: 0 auto;
 }
@@ -63,6 +63,6 @@ iframe {
     
     iframe {
         width: 100% !important;
-        height: 200px;
+        height: 300px;
     }
 }
