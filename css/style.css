@@ -69,7 +69,7 @@ iframe {
 .social-links-section {
     padding: 20px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(10px);
     position: relative;
     z-index: 1;
@@ -81,7 +81,7 @@ iframe {
     display: grid;
     grid-template-columns: repeat(1, 1fr); /* Single column layout */
     gap: 10px;
-    width: 70%; /* Reduced container width */
+    width: 20%; /* Reduced container width */
     margin: 0 auto; /* Center the container horizontally */
 }
 
