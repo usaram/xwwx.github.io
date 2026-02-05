@@ -66,20 +66,3 @@
 
     </div>
 </section>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("https://discord-backend-1.onrender.com/contador")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("views").innerText = data.views;
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById("views").innerText = "erro";
-    });
-});
-</script>
-<body>
-  <p>Visualizações: <span id="views">0</span></p>
-  <script src="script.js"></script>
-</body>
