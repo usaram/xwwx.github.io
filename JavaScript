@@ -1,0 +1,14 @@
+fetch("https://discord-backend-k7nm.onrender.com/discord")
+  .then(r => r.json())
+  .then(user => {
+    document.getElementById("avatar").src =
+      `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+
+    document.getElementById("name").innerText = user.username;
+
+    const badges = document.getElementById("badges");
+
+    if (user.flags & 64) badges.innerHTML += `<img src="hypesquad.png">`;
+    if (user.flags & 128) badges.innerHTML += `<img src="bughunter.png">`;
+    if (user.flags & 2) badges.innerHTML += `<img src="partner.png">`;
+  });
