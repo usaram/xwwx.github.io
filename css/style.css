@@ -157,3 +157,26 @@ body {
     background: #007bff;
     color: white;
 }
+.discord-card {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.discord-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#badges img {
+  width: 14px;
+  margin-right: 4px;
+}
