@@ -1,39 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Painel</title>
-
-<style>
-body {
-  background: black;
-  color: white;
-  font-family: Arial;
-  text-align: center;
-}
-
-input {
-  margin: 10px;
-  padding: 10px;
-  width: 260px;
-}
-
-button {
-  padding: 10px;
-  background: purple;
-  border: none;
-  color: white;
-}
-</style>
 </head>
-<body>
+<body style="background:black;color:white;text-align:center">
 
-<h2>CONFIGURAR SITE</h2>
+<h2>PAINEL</h2>
 
-<input id="color" placeholder="Cor (#c77dff)">
-<input id="bg" placeholder="Link do fundo">
+<input id="color" placeholder="Cor (#ff00ff)">
+<input id="bg" placeholder="Link fundo">
 
-<input id="twitter" placeholder="Twitter/X">
+<input id="twitter" placeholder="Twitter">
 <input id="insta" placeholder="Instagram">
 <input id="tiktok" placeholder="TikTok">
 <input id="roblox" placeholder="Roblox">
@@ -55,7 +32,7 @@ function save() {
   };
 
   localStorage.setItem("config", JSON.stringify(config));
-  alert("Salvo com sucesso!");
+  alert("Salvo!");
 }
 </script>
 
