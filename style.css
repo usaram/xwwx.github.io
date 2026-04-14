@@ -2,6 +2,10 @@
   --main-color: #c77dff;
 }
 
+html, body {
+  background: #000 !important;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -9,10 +13,11 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: radial-gradient(circle, #0a0014, #000);
   color: white;
   font-family: Arial;
   overflow: hidden;
+
+  transition: background 0.8s ease;
 }
 
 /* CARD */
@@ -21,8 +26,8 @@ body {
   padding: 30px;
   text-align: center;
 
-  backdrop-filter: blur(20px);
-  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(25px);
+  background: rgba(0,0,0,0.6);
 
   border-radius: 20px;
   box-shadow: 0 0 40px var(--main-color);
@@ -36,6 +41,8 @@ body {
   border-radius: 15px;
   margin-bottom: 10px;
   display: none;
+
+  box-shadow: 0 0 30px var(--main-color);
 }
 
 /* AVATAR */
