@@ -1,0 +1,70 @@
+:root {
+  --main-color: #c77dff;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle, #0a0014, #000);
+  color: white;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+/* CARD */
+.card {
+  width: 320px;
+  padding: 30px;
+  text-align: center;
+
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.5);
+
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--main-color);
+
+  transition: transform 0.2s ease-out;
+}
+
+/* CAPA */
+#cover {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+/* AVATAR */
+#avatar {
+  width: 110px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+/* SOCIAL */
+.socials a {
+  margin: 12px;
+  font-size: 26px;
+  color: white;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--main-color);
+  text-shadow:
+    0 0 5px var(--main-color),
+    0 0 20px var(--main-color);
+  transform: scale(1.2);
+}
+
+/* PARTICLES */
+#particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
