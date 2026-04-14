@@ -3,75 +3,94 @@
 }
 
 html, body {
-  background: #000 !important;
+  margin: 0;
+  background: #000;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial;
+  color: white;
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* FUNDO DINÂMICO */
+#bg-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px) brightness(0.4);
+  transform: scale(1.2);
+  transition: all 1s ease;
+  z-index: -2;
+}
 
-  color: white;
-  font-family: Arial;
-  overflow: hidden;
-
-  transition: background 0.8s ease;
+/* PARTÍCULAS */
+#particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* CARD */
 .card {
-  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 340px;
   padding: 30px;
+
+  backdrop-filter: blur(30px);
+  background: rgba(0,0,0,0.5);
+
+  border-radius: 25px;
   text-align: center;
 
-  backdrop-filter: blur(25px);
-  background: rgba(0,0,0,0.6);
+  box-shadow: 0 0 50px var(--main-color);
 
-  border-radius: 20px;
-  box-shadow: 0 0 40px var(--main-color);
-
-  transition: transform 0.2s ease-out;
+  transition: transform 0.15s ease;
 }
 
 /* CAPA */
 #cover {
   width: 100%;
   border-radius: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: none;
 
-  box-shadow: 0 0 30px var(--main-color);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px var(--main-color); }
+  to { box-shadow: 0 0 30px var(--main-color); }
 }
 
 /* AVATAR */
 #avatar {
   width: 110px;
   border-radius: 50%;
-  box-shadow: 0 0 25px var(--main-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px var(--main-color); }
+  50% { box-shadow: 0 0 30px var(--main-color); }
+  100% { box-shadow: 0 0 10px var(--main-color); }
 }
 
 /* SOCIAL */
 .socials a {
   margin: 12px;
-  font-size: 26px;
+  font-size: 28px;
   color: white;
   transition: 0.3s;
 }
 
 .socials a:hover {
   color: var(--main-color);
-  text-shadow:
-    0 0 5px var(--main-color),
-    0 0 20px var(--main-color);
-  transform: scale(1.2);
-}
-
-/* PARTICLES */
-#particles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  transform: scale(1.25);
+  text-shadow: 0 0 20px var(--main-color);
 }
