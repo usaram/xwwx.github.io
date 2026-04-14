@@ -11,7 +11,7 @@ html, body {
   color: white;
 }
 
-/* FUNDO DINÂMICO */
+/* FUNDO */
 #bg-overlay {
   position: fixed;
   width: 100%;
@@ -24,7 +24,7 @@ html, body {
   z-index: -2;
 }
 
-/* PARTÍCULAS */
+/* PARTICLES */
 #particles {
   position: fixed;
   width: 100%;
@@ -48,7 +48,10 @@ html, body {
   border-radius: 25px;
   text-align: center;
 
-  box-shadow: 0 0 50px var(--main-color);
+  box-shadow:
+    0 0 20px var(--main-color),
+    0 0 40px var(--main-color),
+    0 0 80px var(--main-color);
 
   transition: transform 0.15s ease;
 }
@@ -60,37 +63,91 @@ html, body {
   margin-bottom: 12px;
   display: none;
 
-  animation: glow 2s infinite alternate;
+  box-shadow:
+    0 0 20px var(--main-color),
+    0 0 40px var(--main-color),
+    0 0 60px var(--main-color);
+
+  animation: glow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 10px var(--main-color); }
-  to { box-shadow: 0 0 30px var(--main-color); }
-}
-
-/* AVATAR */
+/* AVATAR LED */
 #avatar {
   width: 110px;
   border-radius: 50%;
+
+  box-shadow:
+    0 0 10px var(--main-color),
+    0 0 25px var(--main-color),
+    0 0 50px var(--main-color);
+
   animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 10px var(--main-color); }
-  50% { box-shadow: 0 0 30px var(--main-color); }
-  100% { box-shadow: 0 0 10px var(--main-color); }
+/* NOME */
+#username {
+  text-shadow:
+    0 0 5px var(--main-color),
+    0 0 15px var(--main-color),
+    0 0 30px var(--main-color);
 }
 
-/* SOCIAL */
+/* ATIVIDADE */
+#activity {
+  text-shadow: 0 0 10px var(--main-color);
+}
+
+/* SOCIAL LED */
 .socials a {
   margin: 12px;
   font-size: 28px;
   color: white;
+
+  text-shadow:
+    0 0 5px var(--main-color),
+    0 0 15px var(--main-color);
+
   transition: 0.3s;
 }
 
 .socials a:hover {
   color: var(--main-color);
-  transform: scale(1.25);
-  text-shadow: 0 0 20px var(--main-color);
+
+  text-shadow:
+    0 0 10px var(--main-color),
+    0 0 30px var(--main-color),
+    0 0 60px var(--main-color);
+
+  transform: scale(1.3);
+}
+
+/* ANIMAÇÕES */
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px var(--main-color);
+  }
+  to {
+    box-shadow:
+      0 0 40px var(--main-color),
+      0 0 80px var(--main-color);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow:
+      0 0 10px var(--main-color),
+      0 0 20px var(--main-color);
+  }
+  50% {
+    box-shadow:
+      0 0 30px var(--main-color),
+      0 0 60px var(--main-color);
+  }
+  100% {
+    box-shadow:
+      0 0 10px var(--main-color),
+      0 0 20px var(--main-color);
+  }
 }
