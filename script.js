@@ -3,7 +3,6 @@ const USER_ID = "1469403001671389254";
 // CONFIG
 let config = {
   color: "#c77dff",
-  bg: "",
   links: {
     twitter: "",
     insta: "",
@@ -16,15 +15,6 @@ let config = {
 function loadConfig() {
   const saved = JSON.parse(localStorage.getItem("config"));
   if (saved) config = saved;
-  applyConfig();
-}
-
-function applyConfig() {
-  if (config.bg) {
-    document.body.style.background = config.bg;
-  } else {
-    document.body.style.background = "#000";
-  }
 
   document.documentElement.style.setProperty("--main-color", config.color);
 
@@ -47,6 +37,7 @@ async function updateDiscord() {
 
     let text = "Idle...";
     const cover = document.getElementById("cover");
+    const bg = document.getElementById("bg-overlay");
 
     if (user.listening_to_spotify) {
       text = `🎧 ${user.spotify.song} - ${user.spotify.artist}`;
@@ -54,49 +45,38 @@ async function updateDiscord() {
       cover.src = user.spotify.album_art_url;
       cover.style.display = "block";
 
-      // 🔥 FUNDO REAGINDO À MÚSICA
-      document.body.style.background =
-        `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(${user.spotify.album_art_url}) center/cover`;
+      bg.style.backgroundImage =
+        `url(${user.spotify.album_art_url})`;
 
     } else if (user.activities.length > 0) {
       text = `🎮 ${user.activities[0].name}`;
       cover.style.display = "none";
-
-      document.body.style.background = config.bg || "#000";
-
+      bg.style.backgroundImage = "none";
     } else {
       cover.style.display = "none";
-      document.body.style.background = config.bg || "#000";
+      bg.style.backgroundImage = "none";
     }
 
     activity.innerText = text;
 
-  } catch (e) {
-    console.log("Erro Discord");
-  }
+  } catch {}
 }
 
 setInterval(updateDiscord, 5000);
 updateDiscord();
 
-// MOUSE EFFECT
+// 3D PARALLAX SUAVE
 const card = document.getElementById("card");
 
 document.addEventListener("mousemove", (e) => {
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-
-  const percentX = (e.clientX - centerX) / centerX;
-  const percentY = (e.clientY - centerY) / centerY;
-
-  const rotateY = percentX * 8;
-  const rotateX = percentY * -8;
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;
+  const y = (e.clientY / window.innerHeight - 0.5) * 10;
 
   card.style.transform =
-    `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    `translate(-50%, -50%) rotateY(${x}deg) rotateX(${-y}deg)`;
 });
 
-// PARTICLES
+// PARTÍCULAS SUAVES
 const canvas = document.createElement("canvas");
 document.getElementById("particles").appendChild(canvas);
 const ctx = canvas.getContext("2d");
@@ -106,20 +86,22 @@ canvas.height = window.innerHeight;
 
 let p = [];
 
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 60; i++) {
   p.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    s: Math.random() * 2
+    s: Math.random() * 2,
+    v: Math.random() * 0.3
   });
 }
 
 function anim() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   p.forEach(pt => {
-    pt.y += 0.3;
+    pt.y += pt.v;
     if (pt.y > canvas.height) pt.y = 0;
-    ctx.fillStyle = "purple";
+
+    ctx.fillStyle = "rgba(200,100,255,0.5)";
     ctx.fillRect(pt.x, pt.y, pt.s, pt.s);
   });
   requestAnimationFrame(anim);
