@@ -8,8 +8,6 @@
 <h2>PAINEL</h2>
 
 <input id="color" placeholder="Cor (#ff00ff)">
-<input id="bg" placeholder="Link fundo">
-
 <input id="twitter" placeholder="Twitter">
 <input id="insta" placeholder="Instagram">
 <input id="tiktok" placeholder="TikTok">
@@ -22,7 +20,6 @@
 function save() {
   const config = {
     color: color.value,
-    bg: `url(${bg.value}) center/cover`,
     links: {
       twitter: twitter.value,
       insta: insta.value,
