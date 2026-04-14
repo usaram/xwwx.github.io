@@ -20,8 +20,7 @@ function loadConfig() {
 }
 
 function applyConfig() {
-  // 🔥 SÓ APLICA FUNDO SE EXISTIR
-  if (config.bg && config.bg !== "") {
+  if (config.bg) {
     document.body.style.background = config.bg;
   } else {
     document.body.style.background = "#000";
@@ -50,14 +49,24 @@ async function updateDiscord() {
     const cover = document.getElementById("cover");
 
     if (user.listening_to_spotify) {
-      text = ` ${user.spotify.song} - ${user.spotify.artist}`;
+      text = `🎧 ${user.spotify.song} - ${user.spotify.artist}`;
+
       cover.src = user.spotify.album_art_url;
       cover.style.display = "block";
+
+      // 🔥 FUNDO REAGINDO À MÚSICA
+      document.body.style.background =
+        `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(${user.spotify.album_art_url}) center/cover`;
+
     } else if (user.activities.length > 0) {
-      text = ` ${user.activities[0].name}`;
+      text = `🎮 ${user.activities[0].name}`;
       cover.style.display = "none";
+
+      document.body.style.background = config.bg || "#000";
+
     } else {
       cover.style.display = "none";
+      document.body.style.background = config.bg || "#000";
     }
 
     activity.innerText = text;
