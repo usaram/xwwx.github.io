@@ -40,7 +40,7 @@ async function updateDiscord() {
     const bg = document.getElementById("bg-overlay");
 
     if (user.listening_to_spotify) {
-      text = `🎧 ${user.spotify.song} - ${user.spotify.artist}`;
+      text = ` ${user.spotify.song} - ${user.spotify.artist}`;
 
       cover.src = user.spotify.album_art_url;
       cover.style.display = "block";
@@ -49,7 +49,7 @@ async function updateDiscord() {
         `url(${user.spotify.album_art_url})`;
 
     } else if (user.activities.length > 0) {
-      text = `🎮 ${user.activities[0].name}`;
+      text = ` ${user.activities[0].name}`;
       cover.style.display = "none";
       bg.style.backgroundImage = "none";
     } else {
