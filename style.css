@@ -30,9 +30,9 @@ html, body {
   z-index: -1;
 }
 
-/* CARD CENTRALIZADO PERFEITO */
+/* CARD CENTRAL PERFEITO */
 .card {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -44,8 +44,12 @@ html, body {
   background: rgba(0,0,0,0.6);
   border-radius: 20px;
 
-  box-shadow: 0 0 30px var(--main-color);
-  transition: transform 0.2s;
+  box-shadow:
+    0 0 20px var(--main-color),
+    0 0 40px var(--main-color);
+
+  transition: transform 0.15s ease;
+  will-change: transform;
 }
 
 /* AVATAR */
@@ -63,10 +67,25 @@ html, body {
   display: none;
 }
 
+/* TEXTO */
+#username {
+  text-shadow: 0 0 10px var(--main-color);
+}
+
+#activity {
+  opacity: 0.8;
+}
+
 /* SOCIAL */
 .socials a {
   margin: 10px;
   color: white;
   font-size: 22px;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--main-color);
+  text-shadow: 0 0 15px var(--main-color);
 }
