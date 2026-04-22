@@ -2,56 +2,71 @@
   --main-color: #c77dff;
 }
 
-body {
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  font-family:Arial;
-  overflow:hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: Arial;
+  color: white;
 }
 
 /* FUNDO */
 #bg-overlay {
-  position:fixed;
-  width:100%;
-  height:100%;
-  filter:blur(40px) brightness(0.4);
-  transform:scale(1.2);
-  z-index:-2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  filter: blur(40px) brightness(0.4);
+  transform: scale(1.2);
+  z-index: -2;
 }
 
-/* CARD */
-.card {
-  width:320px;
-  padding:25px;
-  text-align:center;
-  background:rgba(0,0,0,0.6);
-  border-radius:20px;
+/* PARTICLES */
+#particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-  box-shadow:0 0 30px var(--main-color);
-  transition:0.2s;
+/* CARD CENTRALIZADO PERFEITO */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 320px;
+  padding: 25px;
+  text-align: center;
+
+  background: rgba(0,0,0,0.6);
+  border-radius: 20px;
+
+  box-shadow: 0 0 30px var(--main-color);
+  transition: transform 0.2s;
 }
 
 /* AVATAR */
 #avatar {
-  width:100px;
-  border-radius:50%;
-  box-shadow:0 0 20px var(--main-color);
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--main-color);
 }
 
 /* CAPA */
 #cover {
-  width:100%;
-  border-radius:10px;
-  margin-bottom:10px;
-  display:none;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: none;
 }
 
 /* SOCIAL */
 .socials a {
-  margin:10px;
-  color:white;
-  text-decoration:none;
+  margin: 10px;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
 }
