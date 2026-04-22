@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Painel</title>
+</head>
+<body style="background:black;color:white;text-align:center">
+
+<h2>PAINEL</h2>
+
+<input id="color" placeholder="Cor (#ff00ff)">
+<input id="twitter" placeholder="Twitter">
+<input id="insta" placeholder="Instagram">
+<input id="tiktok" placeholder="TikTok">
+<input id="roblox" placeholder="Roblox">
+
+<br>
+<button onclick="save()">Salvar</button>
+
+<script>
+function save() {
+  const config = {
+    color: color.value,
+    links: {
+      twitter: twitter.value,
+      insta: insta.value,
+      tiktok: tiktok.value,
+      roblox: roblox.value
+    }
+  };
+
+  localStorage.setItem("config", JSON.stringify(config));
+  alert("Salvo!");
+}
+</script>
+
+</body>
+</html>
