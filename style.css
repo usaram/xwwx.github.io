@@ -1,91 +1,21 @@
-:root {
-  --main-color: #c77dff;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
-  font-family: Arial;
-  color: white;
-}
-
-/* FUNDO */
-#bg-overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  filter: blur(40px) brightness(0.4);
-  transform: scale(1.2);
-  z-index: -2;
-}
-
-/* PARTICLES */
-#particles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* CARD CENTRAL PERFEITO */
-.card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 320px;
-  padding: 25px;
-  text-align: center;
-
-  background: rgba(0,0,0,0.6);
-  border-radius: 20px;
-
-  box-shadow:
-    0 0 20px var(--main-color),
-    0 0 40px var(--main-color);
-
-  transition: transform 0.15s ease;
-  will-change: transform;
-}
-
-/* AVATAR */
-#avatar {
-  width: 100px;
-  border-radius: 50%;
-  box-shadow: 0 0 20px var(--main-color);
-}
-
-/* CAPA */
-#cover {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  display: none;
-}
-
-/* TEXTO */
-#username {
-  text-shadow: 0 0 10px var(--main-color);
-}
-
-#activity {
-  opacity: 0.8;
-}
-
-/* SOCIAL */
 .socials a {
-  margin: 10px;
+  margin: 12px;
+  font-size: 28px;
   color: white;
-  font-size: 22px;
-  text-decoration: none;
   transition: 0.3s;
+
+  text-shadow:
+    0 0 5px var(--main-color),
+    0 0 15px var(--main-color);
 }
 
 .socials a:hover {
   color: var(--main-color);
-  text-shadow: 0 0 15px var(--main-color);
+
+  text-shadow:
+    0 0 10px var(--main-color),
+    0 0 30px var(--main-color),
+    0 0 60px var(--main-color);
+
+  transform: scale(1.3);
 }
