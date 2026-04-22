@@ -1,5 +1,5 @@
 const USER_ID = "1466308940634652745";
-const USER_ID = "1385662420927909899";
+
 // CONFIG
 let config = {
   color: "#c77dff",
