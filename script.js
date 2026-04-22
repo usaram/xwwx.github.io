@@ -1,5 +1,6 @@
-const STORAGE_KEY = "config_" + PROFILE_ID;
+const USER_ID = "1466308940634652745";
 
+// CONFIG
 let config = {
   color: "#c77dff",
   links: {
@@ -10,9 +11,9 @@ let config = {
   }
 };
 
-// CONFIG
+// LOAD CONFIG
 function loadConfig() {
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  const saved = JSON.parse(localStorage.getItem("config"));
   if (saved) config = saved;
 
   document.documentElement.style.setProperty("--main-color", config.color);
@@ -39,25 +40,32 @@ async function updateDiscord() {
     const bg = document.getElementById("bg-overlay");
 
     if (user.listening_to_spotify) {
-      text = `${user.spotify.song} - ${user.spotify.artist}`;
+      text = `🎧 ${user.spotify.song} - ${user.spotify.artist}`;
+
       cover.src = user.spotify.album_art_url;
       cover.style.display = "block";
-      bg.style.backgroundImage = `url(${user.spotify.album_art_url})`;
+
+      bg.style.backgroundImage =
+        `url(${user.spotify.album_art_url})`;
+
     } else if (user.activities.length > 0) {
-      text = user.activities[0].name;
+      text = `🎮 ${user.activities[0].name}`;
+      cover.style.display = "none";
+      bg.style.backgroundImage = "none";
+    } else {
       cover.style.display = "none";
       bg.style.backgroundImage = "none";
     }
 
     activity.innerText = text;
 
-  } catch (e) {}
+  } catch {}
 }
 
 setInterval(updateDiscord, 5000);
 updateDiscord();
 
-// 🔥 MOVIMENTO CORRIGIDO (NÃO QUEBRA CENTRALIZAÇÃO)
+// 3D PARALLAX SUAVE
 const card = document.getElementById("card");
 
 document.addEventListener("mousemove", (e) => {
@@ -68,7 +76,7 @@ document.addEventListener("mousemove", (e) => {
     `translate(-50%, -50%) rotateY(${x}deg) rotateX(${-y}deg)`;
 });
 
-// PARTICLES
+// PARTÍCULAS SUAVES
 const canvas = document.createElement("canvas");
 document.getElementById("particles").appendChild(canvas);
 const ctx = canvas.getContext("2d");
@@ -77,21 +85,24 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let p = [];
-for (let i = 0; i < 50; i++) {
+
+for (let i = 0; i < 60; i++) {
   p.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    v: Math.random() * 0.5
+    s: Math.random() * 2,
+    v: Math.random() * 0.3
   });
 }
 
 function anim() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   p.forEach(pt => {
     pt.y += pt.v;
     if (pt.y > canvas.height) pt.y = 0;
-    ctx.fillStyle = "purple";
-    ctx.fillRect(pt.x, pt.y, 2, 2);
+
+    ctx.fillStyle = "rgba(200,100,255,0.5)";
+    ctx.fillRect(pt.x, pt.y, pt.s, pt.s);
   });
   requestAnimationFrame(anim);
 }
