@@ -111,6 +111,7 @@ anim();
 
 loadConfig();
 
+// /1
 const USER_ID = "1385662420927909899";
 // CONFIG
 let config = {
