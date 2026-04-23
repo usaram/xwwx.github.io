@@ -35,7 +35,7 @@ async function updateDiscord() {
     avatar.src =
       `https://cdn.discordapp.com/avatars/${USER_ID}/${user.discord_user.avatar}.png`;
 
-    let text = "Idle...";
+    let text = "/147";
     const cover = document.getElementById("cover");
     const bg = document.getElementById("bg-overlay");
 
