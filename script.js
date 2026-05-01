@@ -86,12 +86,12 @@ canvas.height = window.innerHeight;
 
 let p = [];
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 80; i++) {
   p.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    s: Math.random() * 2,
-    v: Math.random() * 0.3
+    s: Math.random() * 2 + 1,
+    v: Math.random() * 0.5 + 0.2
   });
 }
 
