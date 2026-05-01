@@ -1,112 +1,87 @@
-const USER_ID = "1466308940634652745";
+const container = document.getElementById("container");
 
-// CONFIG
-let config = {
-  color: "#c77dff",
-  links: {
-    twitter: "",
-    insta: "",
-    tiktok: "",
-    roblox: ""
+// PEGAR PERFIS
+let profiles = JSON.parse(localStorage.getItem("profiles"));
+
+// SE NÃO EXISTIR
+if(!profiles || profiles.length === 0){
+  container.innerHTML = `<div class="empty">Nenhum perfil adicionado</div>`;
+} else {
+
+  // 🔥 DEFINIR LAYOUT
+  if(profiles.length <= 4){
+    container.classList.add("center");
+  } else {
+    container.classList.add("top");
   }
-};
 
-// LOAD CONFIG
-function loadConfig() {
-  const saved = JSON.parse(localStorage.getItem("config"));
-  if (saved) config = saved;
+  // CRIAR CARDS
+  profiles.forEach(profile => {
 
-  document.documentElement.style.setProperty("--main-color", config.color);
+    const card = document.createElement("div");
+    card.className = "card";
 
-  twitter.href = config.links.twitter || "#";
-  instagram.href = config.links.insta || "#";
-  tiktok.href = config.links.tiktok || "#";
-  roblox.href = config.links.roblox || "#";
-}
+    card.style.boxShadow =
+      `0 0 20px ${profile.color}, 0 0 50px ${profile.color}`;
 
-// DISCORD
-async function updateDiscord() {
-  try {
-    const res = await fetch(`https://api.lanyard.rest/v1/users/${USER_ID}`);
-    const data = await res.json();
-    const user = data.data;
+    card.innerHTML = `
+      <img class="cover">
+      <img class="avatar">
 
-    username.innerText = user.discord_user.username;
-    avatar.src =
-      `https://cdn.discordapp.com/avatars/${USER_ID}/${user.discord_user.avatar}.png`;
+      <div class="nick">${profile.nick || "Sem nick"}</div>
+      <div class="username"></div>
 
-    let text = "/147";
-    const cover = document.getElementById("cover");
-    const bg = document.getElementById("bg-overlay");
+      <div class="activity"></div>
 
-    if (user.listening_to_spotify) {
-      text = ` ${user.spotify.song} - ${user.spotify.artist}`;
+      <div class="socials">
+        ${profile.links.twitter ? `<a href="${profile.links.twitter}" target="_blank"><i class="fab fa-x-twitter"></i></a>` : ""}
+        ${profile.links.insta ? `<a href="${profile.links.insta}" target="_blank"><i class="fab fa-instagram"></i></a>` : ""}
+        ${profile.links.tiktok ? `<a href="${profile.links.tiktok}" target="_blank"><i class="fab fa-tiktok"></i></a>` : ""}
+        ${profile.links.roblox ? `<a href="${profile.links.roblox}" target="_blank"><i class="fas fa-cube"></i></a>` : ""}
+      </div>
+    `;
 
-      cover.src = user.spotify.album_art_url;
-      cover.style.display = "block";
+    container.appendChild(card);
 
-      bg.style.backgroundImage =
-        `url(${user.spotify.album_art_url})`;
+    const avatar = card.querySelector(".avatar");
+    const username = card.querySelector(".username");
+    const activity = card.querySelector(".activity");
+    const cover = card.querySelector(".cover");
 
-    } else if (user.activities.length > 0) {
-      text = ` ${user.activities[0].name}`;
-      cover.style.display = "none";
-      bg.style.backgroundImage = "none";
-    } else {
-      cover.style.display = "none";
-      bg.style.backgroundImage = "none";
+    async function update(){
+      try{
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${profile.id}`);
+        const data = await res.json();
+        const user = data.data;
+
+        username.innerText = user.discord_user.username;
+
+        avatar.src =
+          `https://cdn.discordapp.com/avatars/${profile.id}/${user.discord_user.avatar}.png`;
+
+        // 🎧 MÚSICA
+        if(user.listening_to_spotify){
+          activity.innerText =
+            `${user.spotify.song} - ${user.spotify.artist}`;
+
+          cover.src = user.spotify.album_art_url;
+          cover.style.display = "block";
+        } else {
+          activity.innerText =
+            user.activities[0]?.name || "Idle";
+
+          cover.style.display = "none";
+          cover.src = "";
+        }
+
+      } catch(e){
+        console.log("Erro:", e);
+      }
     }
 
-    activity.innerText = text;
+    setInterval(update, 5000);
+    update();
 
-  } catch {}
-}
-
-setInterval(updateDiscord, 5000);
-updateDiscord();
-
-// 3D PARALLAX SUAVE
-const card = document.getElementById("card");
-
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 10;
-  const y = (e.clientY / window.innerHeight - 0.5) * 10;
-
-  card.style.transform =
-    `translate(-50%, -50%) rotateY(${x}deg) rotateX(${-y}deg)`;
-});
-
-// PARTÍCULAS SUAVES
-const canvas = document.createElement("canvas");
-document.getElementById("particles").appendChild(canvas);
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let p = [];
-
-for (let i = 0; i < 80; i++) {
-  p.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    s: Math.random() * 2 + 1,
-    v: Math.random() * 0.5 + 0.2
   });
+
 }
-
-function anim() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  p.forEach(pt => {
-    pt.y += pt.v;
-    if (pt.y > canvas.height) pt.y = 0;
-
-    ctx.fillStyle = "rgba(200,100,255,0.5)";
-    ctx.fillRect(pt.x, pt.y, pt.s, pt.s);
-  });
-  requestAnimationFrame(anim);
-}
-
-anim();
-
-loadConfig();
