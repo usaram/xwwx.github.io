@@ -27,7 +27,6 @@ const profiles = [
       roblox: ""
     }
   }
-  */
 
 ];
 
