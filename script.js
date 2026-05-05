@@ -5,13 +5,13 @@
 const profiles = [
 
   {
-    id: "SEU_ID_AQUI",
-    nick: "Seu Nick",
+    id: "1466308940634652745",
+    nick: "inquieto",
     color: "#c77dff",
     links: {
-      twitter: "",
-      insta: "",
-      tiktok: "",
+      twitter: "https://x.com/iniciavam",
+      insta: "https://www.instagram.com/amolulzz/",
+      tiktok: "https://www.tiktok.com/@xbaw",
       roblox: ""
     }
   },
