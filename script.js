@@ -12,7 +12,7 @@ const profiles = [
       roblox: ""
     }
   },
-
+]
   
 const container = document.getElementById("container");
 
