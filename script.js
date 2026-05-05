@@ -1,21 +1,55 @@
+// ==============================
+// 🔥 CONFIGURAÇÃO (EDITA AQUI)
+// ==============================
+
+const profiles = [
+
+  {
+    id: "SEU_ID_AQUI",
+    nick: "Seu Nick",
+    color: "#c77dff",
+    links: {
+      twitter: "",
+      insta: "",
+      tiktok: "",
+      roblox: ""
+    }
+  },
+
+  /*
+  {
+    id: "OUTRO_ID",
+    nick: "Outro Nick",
+    color: "#00ffcc",
+    links: {
+      twitter: "",
+      insta: "",
+      tiktok: "",
+      roblox: ""
+    }
+  }
+  */
+
+];
+
+// ==============================
+// NÃO MEXER DAQUI PRA BAIXO
+// ==============================
+
 const container = document.getElementById("container");
 
-// PEGAR PERFIS
-let profiles = JSON.parse(localStorage.getItem("profiles"));
-
-// SE NÃO EXISTIR
-if(!profiles || profiles.length === 0){
+// SEM PERFIS
+if(profiles.length === 0){
   container.innerHTML = `<div class="empty">Nenhum perfil adicionado</div>`;
 } else {
 
-  // 🔥 DEFINIR LAYOUT
+  // LAYOUT
   if(profiles.length <= 4){
     container.classList.add("center");
   } else {
     container.classList.add("top");
   }
 
-  // CRIAR CARDS
   profiles.forEach(profile => {
 
     const card = document.createElement("div");
@@ -28,7 +62,7 @@ if(!profiles || profiles.length === 0){
       <img class="cover">
       <img class="avatar">
 
-      <div class="nick">${profile.nick || "Sem nick"}</div>
+      <div class="nick">${profile.nick}</div>
       <div class="username"></div>
 
       <div class="activity"></div>
@@ -59,7 +93,7 @@ if(!profiles || profiles.length === 0){
         avatar.src =
           `https://cdn.discordapp.com/avatars/${profile.id}/${user.discord_user.avatar}.png`;
 
-        // 🎧 MÚSICA
+        // 🎧 SPOTIFY
         if(user.listening_to_spotify){
           activity.innerText =
             `${user.spotify.song} - ${user.spotify.artist}`;
@@ -68,13 +102,13 @@ if(!profiles || profiles.length === 0){
           cover.style.display = "block";
         } else {
           activity.innerText =
-            user.activities[0]?.name || "";
+            user.activities[0]?.name || "Idle";
 
           cover.style.display = "none";
           cover.src = "";
         }
 
-      } catch(e){
+      } catch (e){
         console.log("Erro:", e);
       }
     }
