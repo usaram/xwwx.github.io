@@ -16,10 +16,9 @@ const profiles = [
     }
   },
 
-  /*
   {
-    id: "OUTRO_ID",
-    nick: "Outro Nick",
+    id: "1476105760533643325",
+    nick: "dollar",
     color: "#00ffcc",
     links: {
       twitter: "",
