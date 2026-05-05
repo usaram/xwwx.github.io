@@ -14,13 +14,13 @@ const profiles = [
   },
 
   {
-    id: "1476105760533643325",
-    nick: "dollar",
-    color: "#00ffcc",
+    id: "",
+    nick: "",
+    color: "#c77dff",
     links: {
       twitter: "",
-      insta: "https://www.instagram.com/truezzzzzzz/",
-      tiktok: "https://www.tiktok.com/@dollarmaluco",
+      insta: "",
+      tiktok: "",
       roblox: ""
     }
   }
