@@ -23,7 +23,7 @@ const profiles = [
     links: {
       twitter: "",
       insta: "",
-      tiktok: "",
+      tiktok: "https://www.tiktok.com/@dollarmaluco",
       roblox: ""
     }
   }
