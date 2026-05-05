@@ -13,6 +13,7 @@ const profiles = [
     }
   },
 
+  
 const container = document.getElementById("container");
 
 if(profiles.length === 0){
