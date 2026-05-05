@@ -100,7 +100,7 @@ if(profiles.length === 0){
           cover.style.display = "block";
         } else {
           activity.innerText =
-            user.activities[0]?.name || "Idle";
+            user.activities[0]?.name || "";
 
           cover.style.display = "none";
           cover.src = "";
