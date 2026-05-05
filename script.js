@@ -13,21 +13,6 @@ const profiles = [
     }
   },
 
-  {
-    id: "",
-    nick: "",
-    color: "#c77dff",
-    links: {
-      twitter: "",
-      insta: "",
-      tiktok: "",
-      roblox: ""
-    }
-  }
-
-];
-
-
 const container = document.getElementById("container");
 
 if(profiles.length === 0){
