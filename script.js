@@ -2,12 +2,12 @@
 const profiles = [
 
   {
-    id: "1466308940634652745",
+    id: "1471880548770250815",
     nick: "inquieto",
     color: "#c77dff",
     links: {
-      twitter: "https://x.com/iniciavam",
-      insta: "https://www.instagram.com/amolulzz/",
+      twitter: "https://x.com/crucifiedmymind",
+      insta: "https://www.instagram.com/crucifiedmymind/",
       tiktok: "https://www.tiktok.com/@xbaw",
       roblox: ""
     }
