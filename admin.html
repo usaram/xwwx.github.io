@@ -16,7 +16,6 @@ body {
   color:white;
 }
 
-/* CENTRAL */
 .center {
   height:100vh;
   display:flex;
@@ -24,7 +23,6 @@ body {
   align-items:center;
 }
 
-/* BOX */
 .box {
   width:320px;
   padding:20px;
@@ -36,7 +34,6 @@ body {
   box-shadow:0 0 20px var(--main),0 0 50px var(--main);
 }
 
-/* INPUT */
 input {
   width:100%;
   padding:10px;
@@ -47,7 +44,6 @@ input {
   color:white;
 }
 
-/* BOTÃO */
 button {
   width:100%;
   padding:10px;
@@ -60,7 +56,6 @@ button {
   cursor:pointer;
 }
 
-/* LISTA */
 .list {
   margin-top:10px;
   max-height:150px;
@@ -76,7 +71,6 @@ button {
   justify-content:space-between;
 }
 
-/* PREVIEW */
 .preview {
   margin-top:15px;
   padding:15px;
@@ -90,17 +84,15 @@ button {
 
 <div class="center">
 
-<!-- LOGIN -->
 <div class="box" id="loginBox">
   <h3>🔐 Login</h3>
   <input id="passInput" placeholder="Senha">
   <button onclick="login()">Entrar</button>
 </div>
 
-<!-- APP -->
 <div class="box" id="appBox" style="display:none">
 
-  <h3>⚙️ Painel</h3>
+  <h3>painel</h3>
 
   <input id="idInput" placeholder="ID Discord">
   <input id="nickInput" placeholder="Nick">
@@ -113,10 +105,8 @@ button {
 
   <button onclick="save()">Salvar / Atualizar</button>
 
-  <!-- LISTA -->
   <div class="list" id="list"></div>
 
-  <!-- PREVIEW -->
   <div class="preview" id="preview"></div>
 
 </div>
@@ -139,7 +129,6 @@ function login(){
   }
 }
 
-// STORAGE
 function getProfiles(){
   return JSON.parse(localStorage.getItem("profiles")) || [];
 }
@@ -148,7 +137,6 @@ function setProfiles(p){
   localStorage.setItem("profiles", JSON.stringify(p));
 }
 
-// SALVAR
 function save(){
   const id = idInput.value;
 
@@ -177,7 +165,6 @@ function save(){
   updatePreview();
 }
 
-// LISTA
 function renderList(){
   const list = document.getElementById("list");
   list.innerHTML = "";
@@ -198,7 +185,6 @@ function renderList(){
   });
 }
 
-// EDITAR
 function edit(id){
   const p = getProfiles().find(x=>x.id===id);
 
@@ -214,14 +200,12 @@ function edit(id){
   updatePreview();
 }
 
-// REMOVER
 function removeProfile(id){
   const updated = getProfiles().filter(p=>p.id!==id);
   setProfiles(updated);
   renderList();
 }
 
-// PREVIEW
 function updatePreview(){
   const c = colorInput.value;
 
@@ -233,7 +217,6 @@ function updatePreview(){
   `;
 }
 
-// EVENTOS
 document.querySelectorAll("input").forEach(i=>{
   i.addEventListener("input", updatePreview);
 });
