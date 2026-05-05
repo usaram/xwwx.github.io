@@ -1,6 +1,3 @@
-// ==============================
-// 🔥 CONFIGURAÇÃO (EDITA AQUI)
-// ==============================
 
 const profiles = [
 
@@ -30,18 +27,13 @@ const profiles = [
 
 ];
 
-// ==============================
-// NÃO MEXER DAQUI PRA BAIXO
-// ==============================
 
 const container = document.getElementById("container");
 
-// SEM PERFIS
 if(profiles.length === 0){
   container.innerHTML = `<div class="empty">Nenhum perfil adicionado</div>`;
 } else {
 
-  // LAYOUT
   if(profiles.length <= 4){
     container.classList.add("center");
   } else {
@@ -91,7 +83,6 @@ if(profiles.length === 0){
         avatar.src =
           `https://cdn.discordapp.com/avatars/${profile.id}/${user.discord_user.avatar}.png`;
 
-        // 🎧 SPOTIFY
         if(user.listening_to_spotify){
           activity.innerText =
             `${user.spotify.song} - ${user.spotify.artist}`;
