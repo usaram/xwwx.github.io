@@ -22,7 +22,7 @@ const profiles = [
     color: "#00ffcc",
     links: {
       twitter: "",
-      insta: "",
+      insta: "https://www.instagram.com/truezzzzzzz/",
       tiktok: "https://www.tiktok.com/@dollarmaluco",
       roblox: ""
     }
