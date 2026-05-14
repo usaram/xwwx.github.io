@@ -3,7 +3,7 @@ const profiles = [
 
   {
     id: "1385662420927909899",
-    display_name:"siz",
+    nick:"siz",
     color: "#c77dff",
     links: {
       twitter: "https://x.com/crucifiedmymind",
