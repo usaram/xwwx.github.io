@@ -38,7 +38,6 @@ if(profiles.length === 0){
       <img class="cover">
       <img class="avatar">
 
-      <div class="nick">${profile.nick}</div>
       <div class="username"></div>
       <div class="display_name"></div>
       <div class="activity"></div>
