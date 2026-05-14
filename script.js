@@ -37,9 +37,10 @@ if(profiles.length === 0){
     card.innerHTML = `
       <img class="cover">
       <img class="avatar">
-
+      
+      <div class="nick"></div>
       <div class="username"></div>
-      <div class="display_name"></div>
+
       <div class="activity"></div>
 
       <div class="socials">
