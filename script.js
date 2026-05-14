@@ -40,7 +40,7 @@ if(profiles.length === 0){
 
       <div class="nick">${profile.nick}</div>
       <div class="username"></div>
-
+      <div class="display_name"></div>
       <div class="activity"></div>
 
       <div class="socials">
