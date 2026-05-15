@@ -3,7 +3,7 @@ const profiles = [
 
   {
     id: "1385662420927909899",
-    nick:"",
+    nick:"inquieto",
     color: "#c77dff",
     links: {
       twitter: "https://x.com/crucifiedmymind",
