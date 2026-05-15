@@ -38,7 +38,7 @@ if(profiles.length === 0){
       <img class="cover">
       <img class="avatar">
       
-      <div class="nick"></div>
+      <div class="nick">${profile.nick}</div>
       
       <div class="username"></div>
 
