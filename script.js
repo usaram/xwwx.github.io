@@ -7,7 +7,7 @@ const profiles = [
     color: "#c77dff",
     links: {
       twitter: "https://x.com/crucifiedmymind",
-      insta: "https://www.instagram.com/crucifiedmymind/",
+      insta: "https://www.instagram.com/vezility/",
       tiktok: "https://www.tiktok.com/@xbaw",
       roblox: ""
     }
