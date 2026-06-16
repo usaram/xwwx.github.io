@@ -6,9 +6,31 @@ const profiles = [
     nick:"inquieto",
     color: "#c77dff",
     links: {
-      twitter: "https://x.com/crucifiedmymind",
-      insta: "https://www.instagram.com/vezility/",
-      tiktok: "https://www.tiktok.com/@xbaw",
+      twitter: "https://x.com/crimenacional",
+      insta: "https://www.instagram.com/hurichlov/",
+      tiktok: "https://www.tiktok.com/@payforuse",
+      roblox: ""
+    }
+  },
+  {
+    id: "1346601498192117862",
+    nick:"inquieto",
+    color: "#c77dff",
+    links: {
+      twitter: "https://x.com/crimenacional",
+      insta: "https://www.instagram.com/hurichlov/",
+      tiktok: "https://www.tiktok.com/@crimenacional",
+      roblox: ""
+    }
+  },
+  {
+    id: "1501502319957901352",
+    nick:"inquieto",
+    color: "#c77dff",
+    links: {
+      twitter: "https://x.com/crimenacional",
+      insta: "https://www.instagram.com/hurichlov/",
+      tiktok: "https://www.tiktok.com/@crimenacional",
       roblox: ""
     }
   },
